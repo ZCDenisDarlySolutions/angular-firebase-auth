@@ -1,0 +1,73 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "plugins": ["@typescript-eslint"],
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "no-alert": "error",
+        "no-caller": "error",
+        "no-empty-function": "error",
+        "no-invalid-this": "error",
+        "no-new": "error",
+        "no-new-func": "error",
+        "no-new-wrappers": "error",
+        "no-loop-func": "error",
+        "no-return-await": "error",
+        "no-throw-literal": "error",
+        "no-negated-condition": "error",
+        "max-depth": ["error", 4],
+
+        "no-unused-vars": "off",
+        "no-shadow": "off",
+
+        // Switch setting
+        "default-case-last": "error",
+        "default-case": "error",
+
+        // Allow use only console.error
+        "no-console": ["warn", { "allow": ["error"] }],
+        // Rule: https://eslint.org/docs/rules/curly
+        "curly": "error",
+
+        // Use only === and !== from equal
+        "eqeqeq": ["error", "always"],
+
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-shadow": "error",
+
+        // Main part of time we use auto generate return type
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+
+        //Allow use type object and something like {}
+        //This type should use only in Generic.
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unnecessary-type-constraint": "off"
+      }
+    },
+    // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    },
+    // NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+        "prettier/prettier": ["error", { "parser": "angular" }]
+      }
+    }
+  ]
+}
