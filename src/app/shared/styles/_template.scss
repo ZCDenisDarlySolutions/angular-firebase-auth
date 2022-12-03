@@ -1,0 +1,17 @@
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin verticalGap($gap) {
+  & > * + * {
+    margin-top: $gap;
+  }
+}
+
+@mixin horizontalGap($gap) {
+  & > * + * {
+    margin-left: $gap;
+  }
+}
