@@ -1,0 +1,27 @@
+@import './color';
+
+label {
+  display: block;
+}
+
+p {
+  line-height: 1.2;
+}
+
+.input {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+
+.alert {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid;
+
+  &_danger {
+    background-color: $light-coral;
+    color: $dark-coral;
+    border-color: $dark-coral;
+  }
+}

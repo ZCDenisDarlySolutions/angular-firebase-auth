@@ -1,7 +1,12 @@
-%flex-center {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin verticalCenter {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @mixin verticalGap($gap) {

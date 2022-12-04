@@ -1,0 +1,19 @@
+@import 'template';
+@import 'color';
+
+:host {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  height: 100%;
+}
+
+.header,
+.footer {
+  padding: 0.5rem;
+  background-color: $green;
+}
+
+.content {
+  background-color: $yellow;
+  @include flex-center;
+}

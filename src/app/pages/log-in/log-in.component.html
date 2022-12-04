@@ -1,1 +1,35 @@
-<p>log-in works!</p>
+<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+  <label>
+    <p>Email</p>
+    <input
+      #email="ngModel"
+      class="input"
+      type="email"
+      name="email"
+      required
+      [(ngModel)]="user.email"
+    />
+  </label>
+  <label>
+    <p>Password</p>
+    <input
+      class="input"
+      name="password"
+      type="password"
+      required
+      [(ngModel)]="user.password"
+      #password="ngModel"
+    />
+  </label>
+  <button [disabled]="!email.valid" (click)="forgotPassword()">
+    Forgot Password?
+  </button>
+  <button
+    type="submit"
+    [disabled]="!userForm.form.valid || user.password.length < 8"
+  >
+    Log in
+  </button>
+</form>
+
+<a routerLink="/sign-up">Don't have account? Sign up!</a>

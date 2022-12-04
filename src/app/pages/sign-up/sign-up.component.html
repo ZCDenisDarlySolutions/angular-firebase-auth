@@ -1,1 +1,42 @@
-<p>sign-up works!</p>
+<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+  <label>
+    <p>Email</p>
+    <input
+      required
+      class="input"
+      type="email"
+      #email="ngModel"
+      name="email"
+      [(ngModel)]="user.email"
+    />
+    <p [hidden]="email.valid || email.pristine" class="alert alert_danger">
+      Email not valid!
+    </p>
+  </label>
+  <label>
+    <p>Password</p>
+    <input
+      [(ngModel)]="user.password"
+      required
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[\w@$!%*?&]{8,}$"
+      name="password"
+      type="password"
+    />
+
+    <p>Password rules</p>
+    <ul class="password-rules">
+      <li [class.password-valid]="passwordValid.upper">1 Upper-case letter</li>
+      <li [class.password-valid]="passwordValid.lower">1 Lower-case letter</li>
+      <li [class.password-valid]="passwordValid.number">1 number</li>
+      <li [class.password-valid]="passwordValid.symbol">
+        1 of special symbol @$!%*?&_
+      </li>
+      <li [class.password-valid]="user.password.length >= 8">
+        Min length <b>8</b>
+      </li>
+    </ul>
+  </label>
+  <button type="submit" [disabled]="!userForm.form.valid">Sing Up</button>
+</form>
+
+<a routerLink="/log-in">Already have account? Log in!</a>

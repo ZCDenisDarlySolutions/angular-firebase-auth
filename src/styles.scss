@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './app/shared/styles/reset';
+@import './app/shared/styles/global';
+
+body {
+  height: 100vh;
+  display: grid;
+}
+
+router-outlet {
+  display: none;
+}
 
 *,
 ::before,
