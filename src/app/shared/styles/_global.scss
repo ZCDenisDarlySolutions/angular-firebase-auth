@@ -1,17 +1,61 @@
 @import './color';
+@import './typography';
+@import './template';
 
-label {
+.fields {
+  @include verticalGap(20px);
+}
+
+.field {
   display: block;
+
+  p {
+    @include caption-1-normal;
+    color: $basic-1000;
+    margin-bottom: 4px;
+  }
+
+  input {
+    @include caption-1-normal;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid $basic-250;
+    color: $basic-1000;
+
+    &::placeholder {
+      @include caption-1-normal;
+      color: $basic-750;
+    }
+  }
 }
 
-p {
-  line-height: 1.2;
-}
+button {
+  @include flex-center;
+  @include caption-1-normal;
+  width: 100%;
+  border-radius: 6px;
+  padding: 6px 16px;
+  height: 40px;
+  border: unset;
 
-.input {
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid black;
+  &.button {
+    &_purple {
+      background-color: $purple;
+      color: $white;
+
+      &_out {
+        color: $purple;
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+
+    &_gray {
+      background-color: $basic-150;
+      color: $basic-900;
+    }
+  }
 }
 
 .alert {

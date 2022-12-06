@@ -1,19 +1,57 @@
 @import 'template';
 @import 'color';
+@import 'typography';
 
 :host {
   display: grid;
-  grid-template-rows: min-content 1fr min-content;
   height: 100%;
+
+  @include media(false) {
+    grid-template-columns: 386px 1fr;
+  }
 }
 
-.header,
-.footer {
-  padding: 0.5rem;
-  background-color: $green;
+.sidebar {
+  padding: 630px 52px 0;
+  background: linear-gradient(
+      195.81deg,
+      rgba(118, 61, 211, 0.8) 3.19%,
+      rgba(37, 13, 103, 0.8) 98.05%
+    ),
+    url(../../../../assets/sign-up.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  color: $white;
+
+  @include verticalGap(8px);
+
+  .title {
+    color: $basic-50;
+    @include caption-1-normal;
+  }
+
+  .subtitle {
+    color: $basic-250;
+    @include caption-1-normal;
+  }
+
+  @include media() {
+    display: none;
+  }
 }
 
 .content {
-  background-color: $yellow;
-  @include flex-center;
+  width: 100%;
+  max-width: 400px;
+
+  @include media(false) {
+    margin: 120px auto 0;
+  }
+
+  @include media() {
+    padding: 12px;
+    margin: 0 auto;
+  }
 }

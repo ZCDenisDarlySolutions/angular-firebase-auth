@@ -22,7 +22,7 @@
     "lib": ["ES2022", "dom"],
     "paths": {
       "@services/*": ["app/shared/services/*"],
-      "@components/*": ["app/shared/components/*"],
+      "@shared": ["app/shared/shared.module"],
       "@constants/*": ["app/shared/constants/*"],
       "@typings/*": ["app/shared/typings/*"],
       "@guards/*": ["app/core/guards/*"],

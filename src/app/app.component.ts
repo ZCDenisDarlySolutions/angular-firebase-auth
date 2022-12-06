@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.components.scss'],
 })
 export class AppComponent {
-  title = 'angular-firebase-auth';
+  controlValue = 10;
 }

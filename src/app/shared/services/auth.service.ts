@@ -2,7 +2,12 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { USER } from '@constants/local-storage';
+
 import { ROUTER } from '@constants/router';
+
+import { LocalStorage } from '@services/local-storage';
+
 import { User } from '@typings/user';
 
 @Injectable({
@@ -19,17 +24,13 @@ export class AuthService {
     /* Saving user data in local storage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
-      console.log({ userData: this.userData });
       this.#formatUser(user);
-      localStorage.setItem(
-        'user',
-        user ? JSON.stringify(this.userData) : 'null'
-      );
+      LocalStorage.set(USER, user ? this.userData : null);
     });
   }
 
   #getUser() {
-    return JSON.parse(localStorage.getItem('user')!);
+    return LocalStorage.get<User>(USER)!;
   }
 
   #formatUser(user: any) {
@@ -52,8 +53,6 @@ export class AuthService {
       email,
       password
     );
-
-    console.log({ result });
 
     this.#formatUser(result.user);
     this.afAuth.authState.subscribe((user) => {
@@ -81,7 +80,7 @@ export class AuthService {
   // Sign out
   async logOut() {
     await this.afAuth.signOut();
-    localStorage.removeItem('user');
+    LocalStorage.remove(USER);
     this.userData = undefined;
     this.router.navigate([ROUTER.logIn]);
   }

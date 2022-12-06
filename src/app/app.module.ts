@@ -8,7 +8,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 // Modules
-import { ComponentsModule } from '@components/components.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,7 +22,6 @@ import { LayoutsModule } from './core/layouts/layouts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule,
     LayoutsModule,
     // Firebase
     AngularFireModule.initializeApp(ENVIRONMENT.firebase),

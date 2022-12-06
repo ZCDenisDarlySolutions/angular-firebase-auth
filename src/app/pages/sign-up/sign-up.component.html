@@ -1,42 +1,44 @@
-<form #userForm="ngForm" (ngSubmit)="onSubmit()">
-  <label>
-    <p>Email</p>
-    <input
-      required
-      class="input"
-      type="email"
-      #email="ngModel"
-      name="email"
-      [(ngModel)]="user.email"
-    />
-    <p [hidden]="email.valid || email.pristine" class="alert alert_danger">
-      Email not valid!
-    </p>
-  </label>
-  <label>
-    <p>Password</p>
-    <input
-      [(ngModel)]="user.password"
-      required
-      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[\w@$!%*?&]{8,}$"
-      name="password"
-      type="password"
-    />
+<p>Step 1 of 2</p>
+<p>Sign up</p>
+<p>Already have account? <a routerLink="/log-in">Log in!</a></p>
 
-    <p>Password rules</p>
-    <ul class="password-rules">
-      <li [class.password-valid]="passwordValid.upper">1 Upper-case letter</li>
-      <li [class.password-valid]="passwordValid.lower">1 Lower-case letter</li>
-      <li [class.password-valid]="passwordValid.number">1 number</li>
-      <li [class.password-valid]="passwordValid.symbol">
-        1 of special symbol @$!%*?&_
-      </li>
-      <li [class.password-valid]="user.password.length >= 8">
-        Min length <b>8</b>
-      </li>
-    </ul>
-  </label>
-  <button type="submit" [disabled]="!userForm.form.valid">Sing Up</button>
+<form class="form" [formGroup]="user" (ngSubmit)="onSubmit()">
+  <div class="fields">
+    <label class="field">
+      <p>Email</p>
+      <input class="input" type="email" formControlName="email" />
+    </label>
+    <label class="field">
+      <p>First name</p>
+      <input class="input" type="text" formControlName="firstName" />
+    </label>
+    <label class="field">
+      <p>Last name</p>
+      <input class="input" type="text" formControlName="lastName" />
+    </label>
+
+    <password-input formControlName="password"></password-input>
+
+    <div class="rules" *ngIf="password">
+      <p class="rules__title">Password must</p>
+      <ul class="rules__list">
+        <li class="rule" [class.rule_active]="password.length >= 8">
+          Be at least 8 characters long
+        </li>
+        <li class="rule" [class.rule_active]="passwordValid.upper">
+          Have at least one uppercase
+        </li>
+        <li class="rule" [class.rule_active]="passwordValid.symbol">
+          Have at least one number or special character
+        </li>
+      </ul>
+    </div>
+
+    <password-input
+      *ngIf="password"
+      formControlName="repeatPassword"
+      title="Repeat password"
+    ></password-input>
+  </div>
+  <button type="submit" [disabled]="!user.valid">Next</button>
 </form>
-
-<a routerLink="/log-in">Already have account? Log in!</a>

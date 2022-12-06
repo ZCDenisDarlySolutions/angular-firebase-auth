@@ -1,33 +1,17 @@
-<form #userForm="ngForm" (ngSubmit)="onSubmit()">
-  <label>
-    <p>Email</p>
-    <input
-      #email="ngModel"
-      class="input"
-      type="email"
-      name="email"
-      required
-      [(ngModel)]="user.email"
-    />
-  </label>
-  <label>
-    <p>Password</p>
-    <input
-      class="input"
-      name="password"
-      type="password"
-      required
-      [(ngModel)]="user.password"
-      #password="ngModel"
-    />
-  </label>
-  <button [disabled]="!email.valid" (click)="forgotPassword()">
+<form [formGroup]="user" (ngSubmit)="onSubmit()">
+  <div class="fields">
+    <label class="field">
+      <p>Email</p>
+      <input formControlName="email" type="email" />
+    </label>
+
+    <password-input formControlName="password"></password-input>
+  </div>
+
+  <button class="forgot-password button_purple_out" (click)="forgotPassword()">
     Forgot Password?
   </button>
-  <button
-    type="submit"
-    [disabled]="!userForm.form.valid || user.password.length < 8"
-  >
+  <button class="button_purple" type="submit" [disabled]="!user.valid">
     Log in
   </button>
 </form>

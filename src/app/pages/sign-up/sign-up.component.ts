@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@services/auth.service';
-import { from } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-interface Form {
-  password: string;
-  email: string;
-}
+import { AuthService } from '@services/auth.service';
+import { FormFactory } from '@services/form';
+import { LocalStorage } from '@services/local-storage';
+
+import { SIGN_UP_STEP_1 } from '@constants/local-storage';
+import { PASSWORD_SYMBOL, PASSWORD_UPPERCASE } from '@constants/pattern';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,28 +14,34 @@ interface Form {
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
-  user: Form = {
-    email: '',
-    password: '',
-  };
+  user = new FormGroup({
+    email: FormFactory.control([Validators.email]),
+    firstName: FormFactory.control(),
+    lastName: FormFactory.control(),
+    password: FormFactory.control(),
+    repeatPassword: FormFactory.control(),
+  });
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private fb: FormBuilder) {}
 
   get passwordValid() {
-    const { password } = this.user;
+    const password = this.user.value.password ?? '';
     return {
-      number: /\d/.test(password),
-      lower: /[a-z]/.test(password),
-      upper: /[A-Z]/.test(password),
-      symbol: /[@$!%*?&_]/.test(password),
+      symbol: PASSWORD_SYMBOL.test(password),
+      upper: PASSWORD_UPPERCASE.test(password),
     };
   }
 
+  get email() {
+    return this.user.value.email ?? '';
+  }
+
+  get password() {
+    return this.user.value.password ?? '';
+  }
+
   onSubmit() {
-    from(
-      this.authService.signUp(this.user.email, this.user.password)
-    ).subscribe({
-      error: (error) => console.error(error),
-    });
+    LocalStorage.set(SIGN_UP_STEP_1, this.user.value);
+    // this.authService.signUp(this.email, this.password);
   }
 }
