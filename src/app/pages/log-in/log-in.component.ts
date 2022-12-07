@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { LINKS } from '@constants/router';
 
 import { AuthService } from '@services/auth.service';
 import { FormFactory } from '@services/form';
@@ -11,11 +12,18 @@ import { FormFactory } from '@services/form';
 })
 export class LogInComponent {
   user = new FormGroup({
-    email: FormFactory.control([Validators.email]),
+    email: FormFactory.control(),
     password: FormFactory.control(),
   });
 
   constructor(public authService: AuthService) {}
+
+  get link() {
+    return {
+      signUp: LINKS.signUp,
+      forgotPassword: LINKS.forgotPassword,
+    };
+  }
 
   get email() {
     return this.user.value.email ?? '';
@@ -23,10 +31,6 @@ export class LogInComponent {
 
   get password() {
     return this.user.value.password ?? '';
-  }
-
-  forgotPassword() {
-    this.authService.forgotPassword(this.email);
   }
 
   onSubmit() {

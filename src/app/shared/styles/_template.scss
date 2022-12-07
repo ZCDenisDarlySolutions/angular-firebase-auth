@@ -35,14 +35,14 @@
 }
 
 @mixin verticalGap($gap) {
-  & > * + * {
-    margin-top: $gap;
+  & > *:not(:last-child) {
+    margin-bottom: $gap;
   }
 }
 
 @mixin horizontalGap($gap) {
-  & > * + * {
-    margin-left: $gap;
+  & > *:not(:last-child) {
+    margin-right: $gap;
   }
 }
 

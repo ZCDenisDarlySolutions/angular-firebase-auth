@@ -37,6 +37,29 @@ const ROUTES: Routes = [
         (module) => module.SignUpModule
       ),
   },
+  {
+    path: ROUTER.forgotPassword,
+    component: BaseLayoutComponent,
+    loadChildren: () =>
+      import('./pages/forgot-password/forgot-password.module').then(
+        (module) => module.ForgotPasswordModule
+      ),
+  },
+  {
+    path: ROUTER.verifyEmail,
+    component: BaseLayoutComponent,
+    loadChildren: () =>
+      import('./pages/verify-email/verify-email.module').then(
+        (module) => module.VerifyEmailModule
+      ),
+  },
+  {
+    path: ROUTER.resetPassword,
+    loadChildren: () =>
+      import('./pages/reset-password/reset-password.module').then(
+        (module) => module.ResetPasswordModule
+      ),
+  },
   { path: '**', redirectTo: ROUTER.logIn },
 ];
 

@@ -1,44 +1,16 @@
-<p>Step 1 of 2</p>
-<p>Sign up</p>
-<p>Already have account? <a routerLink="/log-in">Log in!</a></p>
+<div class="step-header">
+  <div class="step-header__step step-header__step_active"></div>
+  <div
+    class="step-header__step"
+    [class.step-header__step_active]="step >= 2"
+  ></div>
+</div>
 
-<form class="form" [formGroup]="user" (ngSubmit)="onSubmit()">
-  <div class="fields">
-    <label class="field">
-      <p>Email</p>
-      <input class="input" type="email" formControlName="email" />
-    </label>
-    <label class="field">
-      <p>First name</p>
-      <input class="input" type="text" formControlName="firstName" />
-    </label>
-    <label class="field">
-      <p>Last name</p>
-      <input class="input" type="text" formControlName="lastName" />
-    </label>
+<header class="header">
+  <p class="step">Step {{ step }} of 2</p>
+  <p class="title">Sign up</p>
+  <p>Already have account? <a class="link" routerLink="/log-in">Log in!</a></p>
+</header>
 
-    <password-input formControlName="password"></password-input>
-
-    <div class="rules" *ngIf="password">
-      <p class="rules__title">Password must</p>
-      <ul class="rules__list">
-        <li class="rule" [class.rule_active]="password.length >= 8">
-          Be at least 8 characters long
-        </li>
-        <li class="rule" [class.rule_active]="passwordValid.upper">
-          Have at least one uppercase
-        </li>
-        <li class="rule" [class.rule_active]="passwordValid.symbol">
-          Have at least one number or special character
-        </li>
-      </ul>
-    </div>
-
-    <password-input
-      *ngIf="password"
-      formControlName="repeatPassword"
-      title="Repeat password"
-    ></password-input>
-  </div>
-  <button type="submit" [disabled]="!user.valid">Next</button>
-</form>
+<app-sign-up-first-step *ngIf="step === 1"></app-sign-up-first-step>
+<app-sign-up-second-step *ngIf="step === 2"></app-sign-up-second-step>

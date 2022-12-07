@@ -1,19 +1,18 @@
-<form [formGroup]="user" (ngSubmit)="onSubmit()">
-  <div class="fields">
-    <label class="field">
-      <p>Email</p>
-      <input formControlName="email" type="email" />
-    </label>
+<header class="header">
+  <p class="title">Log in</p>
+  <p>New user? <a class="link" [routerLink]="link.signUp">Sign up</a></p>
+</header>
 
+<form class="form" [formGroup]="user" (ngSubmit)="onSubmit()">
+  <div class="fields">
+    <email-input formControlName="email"></email-input>
     <password-input formControlName="password"></password-input>
   </div>
 
-  <button class="forgot-password button_purple_out" (click)="forgotPassword()">
+  <a [routerLink]="link.forgotPassword" class="forgot-password link">
     Forgot Password?
-  </button>
+  </a>
   <button class="button_purple" type="submit" [disabled]="!user.valid">
     Log in
   </button>
 </form>
-
-<a routerLink="/sign-up">Don't have account? Sign up!</a>

@@ -1,0 +1,12 @@
+<label class="field">
+  <p>Email</p>
+  <input
+    class="input"
+    type="email"
+    placeholder="example@domain.com"
+    [disabled]="disabled"
+    [value]="value"
+    (blur)="onTouched?.()"
+    (input)="onInput($event)"
+  />
+</label>

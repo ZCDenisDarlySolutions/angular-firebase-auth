@@ -2,8 +2,8 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { USER } from '@constants/local-storage';
 
+import { USER } from '@constants/local-storage';
 import { ROUTER } from '@constants/router';
 
 import { LocalStorage } from '@services/local-storage';
@@ -41,7 +41,7 @@ export class AuthService {
     };
   }
 
-  // Returns true when user is looged in and email is verified
+  // Returns true when user is log in and email is verified
   get isLoggedIn(): boolean {
     const user = this.#getUser();
     return !!user?.emailVerified;

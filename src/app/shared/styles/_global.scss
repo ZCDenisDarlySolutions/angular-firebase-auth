@@ -2,8 +2,23 @@
 @import './typography';
 @import './template';
 
+*:not(form).ng-invalid.ng-touched input {
+  border-color: red;
+}
+
+.form {
+  button[type='submit'] {
+    margin-top: 40px;
+  }
+}
+
+.link {
+  color: $purple;
+}
+
 .fields {
-  @include verticalGap(20px);
+  display: grid;
+  row-gap: 20px;
 }
 
 .field {
@@ -30,6 +45,16 @@
   }
 }
 
+.input {
+  &:focus {
+    border-color: $purple !important;
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: red;
+  }
+}
+
 button {
   @include flex-center;
   @include caption-1-normal;
@@ -39,10 +64,22 @@ button {
   height: 40px;
   border: unset;
 
+  @include media() {
+    height: 28px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &.button {
     &_purple {
       background-color: $purple;
       color: $white;
+
+      &:disabled {
+        background-color: grayscale($purple);
+      }
 
       &_out {
         color: $purple;
@@ -55,17 +92,5 @@ button {
       background-color: $basic-150;
       color: $basic-900;
     }
-  }
-}
-
-.alert {
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid;
-
-  &_danger {
-    background-color: $light-coral;
-    color: $dark-coral;
-    border-color: $dark-coral;
   }
 }

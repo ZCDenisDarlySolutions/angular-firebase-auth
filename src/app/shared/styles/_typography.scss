@@ -3,3 +3,36 @@
   font-weight: 400;
   line-height: 16px;
 }
+
+@mixin heading-1-medium {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@mixin heading-2-medium {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+@mixin body-medium {
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+@mixin body-normal {
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}

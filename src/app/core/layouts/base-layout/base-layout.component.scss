@@ -29,12 +29,10 @@
 
   .title {
     color: $basic-50;
-    @include caption-1-normal;
   }
 
   .subtitle {
     color: $basic-250;
-    @include caption-1-normal;
   }
 
   @include media() {
@@ -45,13 +43,14 @@
 .content {
   width: 100%;
   max-width: 400px;
+  position: relative;
+  margin: 0 auto;
 
   @include media(false) {
-    margin: 120px auto 0;
+    padding-top: 120px;
   }
 
   @include media() {
     padding: 12px;
-    margin: 0 auto;
   }
 }
