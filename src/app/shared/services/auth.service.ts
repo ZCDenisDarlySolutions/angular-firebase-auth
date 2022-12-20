@@ -14,15 +14,13 @@ import { User } from '@typings/user';
   providedIn: 'root',
 })
 export class AuthService {
-  userData?: User; // Save logged in user data
+  userData?: User;
   constructor(
-    public afs: AngularFirestore, // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore,
+    public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone
   ) {
-    /* Saving user data in local storage when 
-    logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
       this.#formatUser(user);
       LocalStorage.set(USER, user ? this.userData : null);
@@ -41,13 +39,11 @@ export class AuthService {
     };
   }
 
-  // Returns true when user is log in and email is verified
   get isLoggedIn(): boolean {
     const user = this.#getUser();
     return !!user?.emailVerified;
   }
 
-  // Sign in with email/password
   async logIn(email: string, password: string) {
     const result = await this.afAuth.signInWithEmailAndPassword(
       email,
@@ -62,7 +58,6 @@ export class AuthService {
     });
   }
 
-  // Sign up with email/password
   async signUp(email: string, password: string) {
     const result = await this.afAuth.createUserWithEmailAndPassword(
       email,
@@ -72,12 +67,10 @@ export class AuthService {
     this.#formatUser(result.user);
   }
 
-  // Reset Forgot password
   async forgotPassword(passwordResetEmail: string) {
     this.afAuth.sendPasswordResetEmail(passwordResetEmail);
   }
 
-  // Sign out
   async logOut() {
     await this.afAuth.signOut();
     LocalStorage.remove(USER);
