@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
 })
-export class SignUpComponent {}
+export class SignUpComponent {
+  step = 1;
+}

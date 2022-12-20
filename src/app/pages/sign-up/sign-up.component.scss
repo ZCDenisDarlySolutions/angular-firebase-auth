@@ -1,0 +1,43 @@
+@import 'color';
+@import 'template';
+@import 'typography';
+
+.step-header {
+  height: 4px;
+
+  display: flex;
+  gap: 16px;
+  width: 100%;
+
+  @include media() {
+    margin-bottom: 24px;
+  }
+
+  @include media(false) {
+    top: 40px;
+    position: absolute;
+  }
+
+  &__step {
+    flex-grow: 1;
+    background-color: $basic-150;
+    &_active {
+      background-color: $purple;
+    }
+  }
+}
+
+.header {
+  margin-bottom: 40px;
+
+  .step {
+    color: $basic-400;
+    margin-bottom: 4px;
+  }
+
+  .title {
+    margin-bottom: 8px;
+    @include heading-1-medium;
+    color: $basic-1000;
+  }
+}

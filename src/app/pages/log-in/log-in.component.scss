@@ -1,0 +1,18 @@
+@import 'typography';
+@import 'color';
+
+.forgot-password {
+  display: flex;
+  justify-content: end;
+  margin-top: 8px;
+}
+
+.header {
+  margin-bottom: 40px;
+
+  .title {
+    margin-bottom: 8px;
+    @include heading-1-medium;
+    color: $basic-1000;
+  }
+}
