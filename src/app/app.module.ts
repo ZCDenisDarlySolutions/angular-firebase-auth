@@ -14,8 +14,8 @@ import { AppComponent } from './app.component';
 // Services
 import { AuthService } from '@services/auth.service';
 
-import { ENVIRONMENT } from '@constants/environment';
-import { LayoutsModule } from './core/layouts/layouts.module';
+import { LayoutsModule } from '@layouts/layouts.module';
+import { ENVIRONMENT } from '../../environment/environment';
 
 @NgModule({
   declarations: [AppComponent],

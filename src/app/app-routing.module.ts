@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '@guards/auth.guard';
 import { BaseLayoutComponent } from '@layouts/base-layout/base-layout.component';
-import { AuthGuard } from 'app/core/guards/auth.guard';
 
 import { ROUTER } from '@constants/router';
 
@@ -55,6 +55,7 @@ const ROUTES: Routes = [
   },
   {
     path: ROUTER.resetPassword,
+    component: BaseLayoutComponent,
     loadChildren: () =>
       import('./pages/reset-password/reset-password.module').then(
         (module) => module.ResetPasswordModule

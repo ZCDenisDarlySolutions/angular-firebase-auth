@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./src/app",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -21,12 +21,12 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@services/*": ["app/shared/services/*"],
-      "@shared": ["app/shared/shared.module"],
-      "@constants/*": ["app/shared/constants/*"],
-      "@typings/*": ["app/shared/typings/*"],
-      "@guards/*": ["app/core/guards/*"],
-      "@layouts/*": ["app/core/layouts/*"]
+      "@services/*": ["shared/services/*"],
+      "@shared": ["shared/shared.module"],
+      "@constants/*": ["shared/constants/*"],
+      "@typings/*": ["shared/typings/*"],
+      "@guards/*": ["core/guards/*"],
+      "@layouts/*": ["core/layouts/*"]
     }
   },
   "angularCompilerOptions": {

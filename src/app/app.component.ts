@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.components.scss'],
 })
-export class AppComponent {
-  controlValue = 10;
-}
+export class AppComponent {}
