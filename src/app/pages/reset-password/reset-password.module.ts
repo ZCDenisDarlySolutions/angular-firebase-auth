@@ -4,14 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ResetPasswordRoutingModule } from './reset-password-routing.module';
 import { ResetPasswordComponent } from './reset-password.component';
 
-
 @NgModule({
-  declarations: [
-    ResetPasswordComponent
-  ],
-  imports: [
-    CommonModule,
-    ResetPasswordRoutingModule
-  ]
+  declarations: [ResetPasswordComponent],
+  imports: [CommonModule, ResetPasswordRoutingModule],
 })
-export class ResetPasswordModule { }
+export class ResetPasswordModule {}

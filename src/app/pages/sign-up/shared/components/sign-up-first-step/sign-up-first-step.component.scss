@@ -1,5 +1,5 @@
-@import 'template';
-@import 'color';
+@import "template";
+@import "color";
 
 .name {
   display: flex;
@@ -25,7 +25,7 @@
     align-items: center;
 
     &::before {
-      content: '';
+      content: "";
       @include circle(6px);
       margin-right: 6px;
       display: inline-block;

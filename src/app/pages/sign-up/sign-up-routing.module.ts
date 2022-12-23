@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { SIGN_UP_ROUTE } from './sign-up.constants';
+
 import { SignUpFirstStepComponent } from './shared/components/sign-up-first-step/sign-up-first-step.component';
 import { SignUpSecondStepComponent } from './shared/components/sign-up-second-step/sign-up-second-step.component';
 import { SignUpComponent } from './sign-up.component';
-import { SIGN_UP_ROUTE } from './sign-up.constants';
 
 const routes: Routes = [
   {

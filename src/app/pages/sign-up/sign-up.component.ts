@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { SIGN_UP_ROUTE } from './sign-up.constants';
 
 @Component({
