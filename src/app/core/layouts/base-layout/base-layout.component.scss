@@ -1,12 +1,12 @@
-@import 'template';
-@import 'color';
-@import 'typography';
+@import "template";
+@import "color";
+@import "typography";
 
 :host {
   display: grid;
   height: 100%;
 
-  @include media(false) {
+  @include mediaPC() {
     grid-template-columns: 386px 1fr;
   }
 }
@@ -35,7 +35,7 @@
     color: $basic-250;
   }
 
-  @include media() {
+  @include mediaMobile() {
     display: none;
   }
 }
@@ -46,11 +46,11 @@
   position: relative;
   margin: 0 auto;
 
-  @include media(false) {
+  @include mediaPC() {
     padding-top: 120px;
   }
 
-  @include media() {
+  @include mediaMobile() {
     padding: 12px;
   }
 }

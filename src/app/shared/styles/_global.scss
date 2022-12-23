@@ -1,13 +1,13 @@
-@import './color';
-@import './typography';
-@import './template';
+@import "./color";
+@import "./typography";
+@import "./template";
 
 *:not(form).ng-invalid.ng-touched input {
   border-color: red;
 }
 
 .form {
-  button[type='submit'] {
+  button[type="submit"] {
     margin-top: 40px;
   }
 }
@@ -64,7 +64,7 @@ button {
   height: 40px;
   border: unset;
 
-  @include media() {
+  @include mediaMobile() {
     height: 28px;
   }
 

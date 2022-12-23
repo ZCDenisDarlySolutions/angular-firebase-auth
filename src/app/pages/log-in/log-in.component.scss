@@ -1,9 +1,9 @@
-@import 'typography';
-@import 'color';
+@import "typography";
+@import "color";
 
 .forgot-password {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-top: 8px;
 }
 

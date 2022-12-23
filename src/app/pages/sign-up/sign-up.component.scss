@@ -1,6 +1,6 @@
-@import 'color';
-@import 'template';
-@import 'typography';
+@import "color";
+@import "template";
+@import "typography";
 
 .step-header {
   height: 4px;
@@ -9,11 +9,11 @@
   gap: 16px;
   width: 100%;
 
-  @include media() {
+  @include mediaMobile() {
     margin-bottom: 24px;
   }
 
-  @include media(false) {
+  @include mediaPC() {
     top: 40px;
     position: absolute;
   }

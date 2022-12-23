@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'reset';
-@import 'global';
-@import 'color';
-@import 'typography';
+@import "reset";
+@import "global";
+@import "color";
+@import "typography";
 
 body {
   height: 100vh;
   display: grid;
-  font-family: 'Inter';
+  font-family: "Inter";
   color: $basic-1000;
   @include caption-1-normal;
 }
