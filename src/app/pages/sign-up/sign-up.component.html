@@ -12,5 +12,4 @@
   <p>Already have account? <a class="link" routerLink="/log-in">Log in!</a></p>
 </header>
 
-<app-sign-up-first-step *ngIf="step === 1"></app-sign-up-first-step>
-<app-sign-up-second-step *ngIf="step === 2"></app-sign-up-second-step>
+<router-outlet></router-outlet>
