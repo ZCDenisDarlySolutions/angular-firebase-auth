@@ -11,11 +11,13 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//Constants
+import { ENVIRONMENT } from '../environment/environment';
+
 // Services
 import { AuthService } from '@services/auth.service';
 
 import { LayoutsModule } from '@layouts/layouts.module';
-import { ENVIRONMENT } from '../../environment/environment';
 
 @NgModule({
   declarations: [AppComponent],
