@@ -27,7 +27,7 @@
     <div class="rules" *ngIf="password">
       <p class="rules__title">Password must</p>
       <ul class="rules__list">
-        <li class="rule" [class.rule_active]="password.length >= 8">
+        <li class="rule" [class.rule_active]="passwordValid.length">
           Be at least 8 characters long
         </li>
         <li class="rule" [class.rule_active]="passwordValid.upper">

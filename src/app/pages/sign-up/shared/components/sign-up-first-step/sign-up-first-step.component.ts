@@ -24,8 +24,9 @@ export class SignUpFirstStepComponent {
   constructor(public storage: LocalStorageService) {}
 
   get passwordValid() {
-    const password = this.user.value.password ?? '';
+    const password = this.password;
     return {
+      length: password.length >= 8,
       symbol: PASSWORD_SYMBOL.test(password),
       upper: PASSWORD_UPPERCASE.test(password),
     };
@@ -38,8 +39,8 @@ export class SignUpFirstStepComponent {
   get isCorrectRepeatPassword() {
     const { password, repeatPassword } = this.user.value;
     return (
-      !password?.trim() &&
-      !repeatPassword?.trim() &&
+      !!password?.trim() &&
+      !!repeatPassword?.trim() &&
       password === repeatPassword
     );
   }
