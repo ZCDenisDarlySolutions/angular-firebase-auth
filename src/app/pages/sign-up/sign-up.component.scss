@@ -6,8 +6,9 @@
   height: 4px;
 
   display: flex;
-  gap: 16px;
   width: 100%;
+
+  @include horizontalGap(16px);
 
   @include mediaMobile() {
     margin-bottom: 24px;
@@ -21,6 +22,7 @@
   &__step {
     flex-grow: 1;
     background-color: $basic-150;
+
     &_active {
       background-color: $purple;
     }
@@ -30,12 +32,12 @@
 .header {
   margin-bottom: 40px;
 
-  .step {
+  &__step {
     color: $basic-400;
     margin-bottom: 4px;
   }
 
-  .title {
+  &__title {
     margin-bottom: 8px;
     @include heading-1-medium;
     color: $basic-1000;

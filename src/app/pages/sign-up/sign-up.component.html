@@ -7,9 +7,11 @@
 </div>
 
 <header class="header">
-  <p class="step">Step {{ step }} of 2</p>
-  <p class="title">Sign up</p>
-  <p>Already have account? <a class="link" routerLink="/log-in">Log in!</a></p>
+  <div class="header__step">Step {{ step }} of 2</div>
+  <h1 class="header__title">Sign up</h1>
+  <h3>
+    Already have account? <a class="link" routerLink="/log-in">Log in!</a>
+  </h3>
 </header>
 
 <router-outlet></router-outlet>

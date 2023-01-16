@@ -12,7 +12,7 @@
 }
 
 .sidebar {
-  padding: 630px 52px 0;
+  padding: 0 52px;
   background: linear-gradient(
       195.81deg,
       rgba(118, 61, 211, 0.8) 3.19%,
@@ -23,9 +23,13 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  color: $white;
+  display: flex;
+  align-items: flex-end;
 
-  @include verticalGap(8px);
+  &_content {
+    @include verticalGap(8px);
+    padding-bottom: 30vh;
+  }
 
   .title {
     color: $basic-50;
@@ -47,7 +51,7 @@
   margin: 0 auto;
 
   @include mediaPC() {
-    padding-top: 120px;
+    padding-top: 136px;
   }
 
   @include mediaMobile() {

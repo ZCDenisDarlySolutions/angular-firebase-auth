@@ -3,18 +3,18 @@
     <email-input formControlName="email"></email-input>
     <div class="name">
       <label class="field">
-        <p>First name</p>
+        <div class="field__title">First name</div>
         <input
-          class="input"
+          class="field__input"
           placeholder="First name"
           type="text"
           formControlName="firstName"
         />
       </label>
       <label class="field">
-        <p>Last name</p>
+        <div class="field__title">Last name</div>
         <input
-          class="input"
+          class="field__input"
           placeholder="Last name"
           type="text"
           formControlName="lastName"
@@ -25,7 +25,7 @@
     <password-input formControlName="password"></password-input>
 
     <div class="rules" *ngIf="password">
-      <p class="rules__title">Password must</p>
+      <h3 class="rules__title">Password must</h3>
       <ul class="rules__list">
         <li class="rule" [class.rule_active]="passwordValid.length">
           Be at least 8 characters long

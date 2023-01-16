@@ -11,6 +11,7 @@ import {
 @Component({
   selector: 'email-input',
   templateUrl: './email-input.component.html',
+  styleUrls: ['./email-input.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

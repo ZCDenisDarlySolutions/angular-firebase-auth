@@ -1,10 +1,13 @@
 @import "typography";
 @import "color";
 
+.fieldset {
+  margin-bottom: 8px;
+}
+
 .forgot-password {
   display: flex;
   justify-content: flex-end;
-  margin-top: 8px;
 }
 
 .header {

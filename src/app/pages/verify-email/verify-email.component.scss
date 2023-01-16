@@ -14,11 +14,11 @@ b {
   margin-bottom: 8px;
 }
 
-.alert {
-  margin-top: 40px;
+.instruction {
+  margin-bottom: 40px;
+}
 
-  &__button {
-    cursor: pointer;
-    color: $purple;
-  }
+.alert-button {
+  cursor: pointer;
+  color: $purple;
 }

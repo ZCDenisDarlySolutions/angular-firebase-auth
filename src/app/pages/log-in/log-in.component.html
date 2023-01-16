@@ -1,10 +1,10 @@
 <header class="header">
-  <p class="title">Log in</p>
-  <p>New user? <a class="link" [routerLink]="link.signUp">Sign up</a></p>
+  <h1 class="title">Log in</h1>
+  <div>New user? <a class="link" [routerLink]="link.signUp">Sign up</a></div>
 </header>
 
 <form class="form" [formGroup]="user" (ngSubmit)="onSubmit()">
-  <div class="fields">
+  <div class="fields fieldset">
     <email-input formControlName="email"></email-input>
     <password-input formControlName="password"></password-input>
   </div>
