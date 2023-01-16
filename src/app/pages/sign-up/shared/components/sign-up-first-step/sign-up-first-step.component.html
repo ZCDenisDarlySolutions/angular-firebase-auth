@@ -45,11 +45,7 @@
       title="Repeat password"
     ></password-input>
   </div>
-  <button
-    class="button_purple"
-    type="submit"
-    [disabled]="!user.valid || !isCorrectRepeatPassword"
-  >
+  <button class="button_purple" type="submit" [disabled]="!user.valid">
     Next
   </button>
 </form>

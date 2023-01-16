@@ -6,6 +6,7 @@ import { PASSWORD_SYMBOL, PASSWORD_UPPERCASE } from '@constants/pattern';
 
 import { FormFactory } from '@services/form';
 import { LocalStorageService } from '@services/local-storage.service';
+import { isCorrectRepeatPassword } from '@services/validation';
 
 @Component({
   selector: 'app-sign-up-first-step',
@@ -13,13 +14,16 @@ import { LocalStorageService } from '@services/local-storage.service';
   styleUrls: ['./sign-up-first-step.component.scss'],
 })
 export class SignUpFirstStepComponent {
-  user = new FormGroup({
-    email: FormFactory.control(),
-    firstName: FormFactory.control(),
-    lastName: FormFactory.control(),
-    password: FormFactory.control(),
-    repeatPassword: FormFactory.control(),
-  });
+  user = new FormGroup(
+    {
+      email: FormFactory.control(),
+      firstName: FormFactory.control(),
+      lastName: FormFactory.control(),
+      password: FormFactory.control(),
+      repeatPassword: FormFactory.control(),
+    },
+    { validators: isCorrectRepeatPassword }
+  );
 
   constructor(public storage: LocalStorageService) {}
 
@@ -34,15 +38,6 @@ export class SignUpFirstStepComponent {
 
   get password() {
     return this.user.value.password ?? '';
-  }
-
-  get isCorrectRepeatPassword() {
-    const { password, repeatPassword } = this.user.value;
-    return (
-      !!password?.trim() &&
-      !!repeatPassword?.trim() &&
-      password === repeatPassword
-    );
   }
 
   onSubmit() {
