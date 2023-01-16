@@ -5,7 +5,7 @@ import { SIGN_UP_STEP_1 } from '@constants/local-storage';
 import { PASSWORD_SYMBOL, PASSWORD_UPPERCASE } from '@constants/pattern';
 
 import { FormFactory } from '@services/form';
-import { LocalStorage } from '@services/local-storage';
+import { LocalStorageService } from '@services/local-storage.service';
 
 @Component({
   selector: 'app-sign-up-first-step',
@@ -21,7 +21,7 @@ export class SignUpFirstStepComponent {
     repeatPassword: FormFactory.control(),
   });
 
-  constructor() {}
+  constructor(public storage: LocalStorageService) {}
 
   get passwordValid() {
     const password = this.user.value.password ?? '';
@@ -45,6 +45,6 @@ export class SignUpFirstStepComponent {
   }
 
   onSubmit() {
-    LocalStorage.set(SIGN_UP_STEP_1, this.user.value);
+    this.storage.set(SIGN_UP_STEP_1, this.user.value);
   }
 }

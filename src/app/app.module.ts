@@ -8,16 +8,12 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 // Modules
+import { LayoutsModule } from '@layouts/layouts.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //Constants
 import { ENVIRONMENT } from '../environment/environment';
-
-// Services
-import { AuthService } from '@services/auth.service';
-
-import { LayoutsModule } from '@layouts/layouts.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +28,6 @@ import { LayoutsModule } from '@layouts/layouts.module';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
   ],
-  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
