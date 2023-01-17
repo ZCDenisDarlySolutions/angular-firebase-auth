@@ -1,0 +1,24 @@
+@import "typography";
+@import "color";
+
+:host {
+  @include body-normal;
+}
+
+b {
+  @include body-medium;
+}
+
+.title {
+  @include heading-2-medium;
+  margin-bottom: 8px;
+}
+
+.instruction {
+  margin-bottom: 40px;
+}
+
+.alert-button {
+  cursor: pointer;
+  color: $purple;
+}

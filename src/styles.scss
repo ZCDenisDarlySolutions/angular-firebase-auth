@@ -1,6 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './app/shared/styles/reset';
+@import "reset";
+@import "global";
+@import "color";
+@import "typography";
+@import "icomoon";
+
+body {
+  height: 100vh;
+  display: grid;
+  font-family: "Inter";
+  color: $basic-1000;
+  @include caption-1-normal;
+}
+
+router-outlet {
+  display: none;
+}
 
 *,
 ::before,

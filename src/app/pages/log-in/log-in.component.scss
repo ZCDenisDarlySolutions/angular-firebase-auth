@@ -1,0 +1,21 @@
+@import "typography";
+@import "color";
+
+.fieldset {
+  margin-bottom: 8px;
+}
+
+.forgot-password {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header {
+  margin-bottom: 40px;
+
+  .title {
+    margin-bottom: 8px;
+    @include heading-1-medium;
+    color: $basic-1000;
+  }
+}

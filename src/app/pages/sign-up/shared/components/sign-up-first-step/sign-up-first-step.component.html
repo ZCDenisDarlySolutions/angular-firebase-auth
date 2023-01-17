@@ -1,0 +1,51 @@
+<form class="form" [formGroup]="user" (ngSubmit)="onSubmit()">
+  <div class="fields">
+    <email-input formControlName="email"></email-input>
+    <div class="name">
+      <div class="field">
+        <div class="field__title">First name</div>
+        <input
+          class="field__input"
+          placeholder="First name"
+          type="text"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="field">
+        <div class="field__title">Last name</div>
+        <input
+          class="field__input"
+          placeholder="Last name"
+          type="text"
+          formControlName="lastName"
+        />
+      </div>
+    </div>
+
+    <password-input formControlName="password"></password-input>
+
+    <div class="rules" *ngIf="password">
+      <h3 class="rules__title">Password must</h3>
+      <ul class="rules__list">
+        <li class="rule" [class.rule_active]="passwordValid.length">
+          Be at least 8 characters long
+        </li>
+        <li class="rule" [class.rule_active]="passwordValid.upper">
+          Have at least one uppercase
+        </li>
+        <li class="rule" [class.rule_active]="passwordValid.symbol">
+          Have at least one number or special character
+        </li>
+      </ul>
+    </div>
+
+    <password-input
+      *ngIf="password"
+      formControlName="repeatPassword"
+      title="Repeat password"
+    ></password-input>
+  </div>
+  <button class="button_purple" type="submit" [disabled]="!user.valid">
+    Next
+  </button>
+</form>

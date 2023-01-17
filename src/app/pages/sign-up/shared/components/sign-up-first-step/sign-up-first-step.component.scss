@@ -1,0 +1,42 @@
+@import "template";
+@import "color";
+
+.name {
+  display: flex;
+  @include horizontalGap(16px);
+
+  > * {
+    flex: 1;
+  }
+}
+
+.rules {
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    @include verticalGap(4px);
+  }
+}
+
+.rule {
+  color: $basic-800;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    @include circle(6px);
+    margin-right: 6px;
+    display: inline-block;
+    background-color: $basic-400;
+  }
+
+  &_active {
+    color: $basic-1000;
+    &::before {
+      background-color: $green-500;
+    }
+  }
+}

@@ -1,17 +1,59 @@
-%flex-center {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin circle($size) {
+  @include square($size);
+  border-radius: 50%;
+}
+
+@mixin verticalCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin rightVerticalCenter($right) {
+  position: absolute;
+  top: 50%;
+  right: $right;
+  transform: translateY(-50%);
+}
+
+@mixin leftVerticalCenter($left) {
+  position: absolute;
+  top: 50%;
+  left: $left;
+  transform: translateY(-50%);
+}
+
 @mixin verticalGap($gap) {
-  & > * + * {
-    margin-top: $gap;
+  & > *:not(:last-child) {
+    margin-bottom: $gap;
   }
 }
 
 @mixin horizontalGap($gap) {
-  & > * + * {
-    margin-left: $gap;
+  & > *:not(:last-child) {
+    margin-right: $gap;
+  }
+}
+
+@mixin mediaMobile() {
+  @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin mediaPC() {
+  @media only screen and (min-width: 801px) {
+    @content;
   }
 }

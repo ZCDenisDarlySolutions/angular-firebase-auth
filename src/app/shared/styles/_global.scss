@@ -1,0 +1,92 @@
+@import "./color";
+@import "./typography";
+@import "./template";
+
+*:not(form).ng-invalid.ng-touched input {
+  border-color: red;
+}
+
+.form {
+  button[type="submit"] {
+    margin-top: 40px;
+  }
+}
+
+.link {
+  color: $purple;
+}
+
+.fields {
+  @include verticalGap(20px);
+}
+
+.field {
+  &__title {
+    display: inline-block;
+    @include caption-1-normal;
+    color: $basic-1000;
+    margin-bottom: 4px;
+  }
+
+  &__input {
+    @include caption-1-normal;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid $basic-250;
+    color: $basic-1000;
+
+    &.ng-invalid.ng-touched {
+      border-color: red;
+    }
+
+    &:focus {
+      border-color: $purple !important;
+    }
+
+    &::placeholder {
+      @include caption-1-normal;
+      color: $basic-750;
+    }
+  }
+}
+
+button {
+  @include flex-center;
+  @include caption-1-normal;
+  width: 100%;
+  border-radius: 6px;
+  padding: 6px 16px;
+  height: 40px;
+  border: unset;
+
+  @include mediaMobile() {
+    height: 28px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.button {
+    &_purple {
+      background-color: $purple;
+      color: $white;
+
+      &:disabled {
+        background-color: grayscale($purple);
+      }
+
+      &_out {
+        color: $purple;
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+
+    &_gray {
+      background-color: $basic-150;
+      color: $basic-900;
+    }
+  }
+}
