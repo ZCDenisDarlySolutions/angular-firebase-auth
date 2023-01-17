@@ -17,14 +17,12 @@
 }
 
 .fields {
-  display: grid;
-  row-gap: 20px;
+  @include verticalGap(20px);
 }
 
 .field {
-  display: block;
-
   &__title {
+    display: inline-block;
     @include caption-1-normal;
     color: $basic-1000;
     margin-bottom: 4px;
